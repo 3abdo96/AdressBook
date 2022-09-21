@@ -1,0 +1,77 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+
+    <div class="form-froup row" style="width: 75%;">
+    
+        <label class="col-sm-2 col-form-label">Employee Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"  EmployeeName="ngModel" [(ngModel)]="EmployeeName"
+            placeholder="Enter Employee Name">
+        </div>
+        
+        <label class="col-sm-2 col-form-label">Job Title</label>
+        <div class="col-sm-10">
+           <select class="form-control" JobTitle="ngModel" [(ngModel)]="JobTitle">
+               <option>--Select--</option>
+               <option *ngFor="let jobName of JobsList">
+                   {{jobName.JobTitle}}
+               </option>
+           </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Department</label>
+        <div class="col-sm-10">
+           <select class="form-control" Department="ngModel" [(ngModel)]="Department">
+               <option>--Select--</option>
+               <option *ngFor="let depName of DepartmentsList">
+                   {{depName.DepartmentName}}
+               </option>
+           </select>
+        </div>
+    
+        <label class="col-sm-2 col-form-label">Mobile Number</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" MobileNumber="ngModel" [(ngModel)]="MobileNumber"
+            placeholder="Enter Mobile Number">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Date of Birth</label>
+        <div class="col-sm-10">
+            <input type="date" DateOfBirth="ngModel"  [(ngModel)]="DateOfBirth">
+        </div>
+    
+        <label class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" Address="ngModel" [(ngModel)]="Address"
+            placeholder="Enter Address">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" email="true" class="form-control" Email="ngModel" [(ngModel)]="Email"
+            placeholder="Enter Email"> 
+        </div>
+
+        <label class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" Age="ngModel" [(ngModel)]="Age"
+            placeholder="Enter Age">
+        </div>
+
+    </div>
+
+    <div class="ml-3 bd-highlight" style="width: 25%;">
+    <img [src]=PhotoFilePath height="250px;" width="200px;">
+    <input type="file" (change)="uploadPhoto($event)" class="mt-2"/>
+    </div>
+
+</div>
+
+    
+    
+    <button (click)="addEmployee()" *ngIf="emp.EmployeeId==0" class="btn btn-primary">
+        Add
+    </button>
+    
+    <button (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0" class="btn btn-primary">
+        Update
+    </button>
